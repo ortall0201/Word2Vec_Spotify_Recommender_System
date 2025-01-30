@@ -78,6 +78,8 @@ jupyter notebook
 4. **Get Recommendations**
 - Open the notebook and input an "artistname:trackname".
 - The model will return the top 10 recommended songs based on artist similarity.
+- Example Usage:
+  ![exampleUsage](presentation/exampleUsage.png)
 
 ---
 
@@ -90,6 +92,10 @@ jupyter notebook
   - Used to **prevent mismatches in the trackname part** of the concatenated string (`"artistname:trackname"`).  
   - Ensures that **Word2Vec learns artist-based relationships first**, without being influenced by trackname variations.  
   - Helps avoid incorrect associations where the model could mistakenly link tracks instead of artists at this stage.
+  - Fuzzy threshold was chosen carefully:
+    
+ ![fuzzyElbow](presentation/fuzzyElbow.png)
+    
 
 **Future Development:**  
 - Implement a **hybrid recommender system**:
