@@ -1,5 +1,7 @@
 # 🎵 Natural Language Processing for Music Recommendation: A Word2Vec Approach
 
+![presentationSlide](presentation/presentationSlide.png)
+
 ## Overview
 This repository contains a **Word2Vec-based recommender system** that applies **Natural Language Processing (NLP) exclusively to textual data** in the dataset.  
 The model learns relationships **only from strings of natural language**, specifically using the following **four textual features**:
