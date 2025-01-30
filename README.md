@@ -1,8 +1,15 @@
-# 🎵 Artist-Based Recommender System for Spotify Using Word2Vec
+# 🎵 Natural Language Processing for Music Recommendation: A Word2Vec Approach
 
 ## Overview
-This repository contains a **Word2Vec-based recommender system** that suggests songs based on a user's artist preference.  
-By leveraging **crowdsourced user playlist data**, the system learns artist relationships and recommends **top 10 songs** that are most similar to the user's artist-based taste.  
+This repository contains a **Word2Vec-based recommender system** that applies **Natural Language Processing (NLP) exclusively to textual data** in the dataset.  
+The model learns relationships **only from strings of natural language**, specifically using the following **four textual features**:
+- **User ID** (as a reference, not used in NLP processing)
+- **Track Name** (song titles in natural language)
+- **Artist Name** (artist names as text-based entities)
+- **Playlist Name** (curated user-generated textual metadata)
+
+By leveraging **crowdsourced user playlist data**, the system learns artist relationships and recommends **top 10 songs** that are most similar to the user's artist-based preference.
+
 
 ### 🔥 Future Work:
 A **hybrid recommender system** is planned, which will refine recommendations further by:
@@ -103,5 +110,16 @@ For more details, see the [`LICENSE`](LICENSE) file in this repository.
 - **Gensim Word2Vec Documentation**: [Gensim Official Docs](https://radimrehurek.com/gensim/models/word2vec.html)  
 - **Spotify Playlists Dataset**: [Kaggle Dataset](https://www.kaggle.com/datasets/andrewmvd/spotify-playlists/data?select=spotify_dataset.csv)  
 
+---
 
+## 📢 Data Disclaimer
+This project is for **educational and research purposes only**.  
+The dataset used in this repository was obtained from **[Kaggle](https://www.kaggle.com/datasets/andrewmvd/spotify-playlists/data?select=spotify_dataset.csv)** and contains publicly available playlist data.  
+
+**All rights to the original data belong to Spotify.**  
+This repository does **not** distribute, modify, or claim ownership over any Spotify content.
+
+---
+
+🎧 **Have a favorite artist? Let’s see if AI can guess your next jam!** 🎶  
 
