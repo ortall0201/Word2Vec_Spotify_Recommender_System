@@ -1,62 +1,55 @@
-Word2Vec NLP Project
-This repository contains my final data science course project, where I explore how Word2Vec can be applied to Natural Language Processing (NLP) tasks. It demonstrates how to train word embeddings and evaluate semantic relationships between words.
+# 🎵 Artist-Based Recommender System for Spotify using Word2Vec
 
-Table of Contents
-Project Overview
-Getting Started
-Notebook Highlights
-How to Use
-License
-Project Overview
-Goal: Demonstrate how Word2Vec can be used to learn vector representations of words and capture semantic relationships within a text corpus.
-Course Context: This project was part of my final assignment in a data science course, focusing on end-to-end NLP workflows.
-Getting Started
-Clone the Repo
+This repository contains my **final data science course project**, where I developed an **artist-based recommender system** using **Word2Vec**.  
+The goal of this project is to train word embeddings that capture relationships between **music artists** based on user-created Spotify playlists.
 
-bash
-Copy
-Edit
-git clone https://github.com/your-username/word2vec-nlp-project.git
-Install Dependencies
+---
 
-Python 3.x
-Gensim
-NLTK (or any other libraries you used)
-matplotlib or seaborn (if you include visualizations)
-bash
-Copy
-Edit
-pip install -r requirements.txt
-(Include a requirements.txt file if possible.)
+## 🚀 **Project Overview**
+- **Objective**: To recommend similar artists based on playlist data using Word2Vec embeddings.  
+- **Dataset**: Publicly available **Spotify playlist dataset** from **Kaggle**.  
+- **Key Steps**:
+  1. **Exploratory Data Analysis (EDA)**: Understanding and preprocessing the dataset.
+  2. **Data Cleaning & Normalization**: Removing noise, handling missing values, and standardizing text.
+  3. **Word2Vec Model Training**: Learning artist relationships based on co-occurrences in playlists.
+  4. **Evaluation & Recommendations**: Using similarity metrics to generate artist recommendations.
 
-Download or Prepare Your Data
+---
 
-Place your text corpus in the data/ folder, or update the notebook paths to point to your dataset.
-Notebook Highlights
-Data Cleaning & Preprocessing: Shows how text data was tokenized and prepared for training.
-Word2Vec Model Training: Includes details on hyperparameters (vector size, window size, min_count, etc.) and training steps using Gensim (or another library).
-Evaluation: Demonstrates how to evaluate word embeddings via:
-Word similarity checks
-t-SNE or PCA visualizations for embedding inspection
-Insights & Observations: Presents the model’s performance and potential improvements.
-How to Use
-Open the Jupyter Notebook
+## 📊 **Dataset Information**
+- **Source**: [Kaggle - Spotify Playlist Dataset](https://www.kaggle.com/datasets/andrewmvd/spotify-playlists)  
+- **Contents**:
+  - **User ID**
+  - **Track Name**
+  - **Artist Name**
+  - **Playlist Name**
+- **Size**: Originally **12 million rows**, cleaned down to **~10 million rows** after preprocessing.  
+- **Data Cleaning**:
+  - Removed missing values: ~33,572 artist names, 88 track names, and 1,246 playlist names were missing.
+  - **Standardized text**: Converted to lowercase, removed duplicates, stripped extra spaces.
+  - **Removed outliers**: Excluded **"Starred" playlist**, which contained 1.3M tracks and contributed to noise.
+  - **Filtered user data**: Eliminated extreme heavy users who skewed the data distribution.
 
-bash
-Copy
-Edit
-cd word2vec-nlp-project
-jupyter notebook
-Run Cells Step-by-Step
-Follow the instructions within the notebook cells to reproduce the results or modify parameters for experimentation.
+---
 
-Modify/Reuse
-Feel free to adapt the code for your own text data or different parameter settings to see how it affects the learned word embeddings.
+## 🔧 **Notebook Workflow**
+### **1️⃣ Data Preprocessing**
+- Performed **EDA** to examine the dataset distribution.
+- Standardized all text fields (lowercase conversion, string cleaning).
+- Filtered **short artist names** and **noise words**.
+- Dropped missing values (except artists, where "Unknown Artist" was assigned).
 
-License
-This project is licensed under the MIT License – feel free to use and modify the code, but please include appropriate attribution.
+### **2️⃣ Training Word2Vec Model**
+- **Approach**: **Skip-Gram Word2Vec** to learn artist embeddings.
+- **Hyperparameters**:
+  - `vector_size=100`
+  - `window=5`
+  - `min_count=5`
+  - `sg=1` (Skip-gram)
+- **Training Goal**: Capture the similarity between artists based on playlist co-occurrences.
 
-Additional Sections (Optional):
-
-References: If you used external resources or research papers, cite them here.
-Author Info: Add your LinkedIn or personal site details to showcase your online presence.
+### **3️⃣ Evaluating Recommendations**
+- Used **cosine similarity** to find **the most similar artists** for a given input.
+- Example:
+  ```python
+  model.wv.most_similar
