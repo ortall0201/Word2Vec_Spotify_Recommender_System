@@ -54,7 +54,15 @@ A **hybrid recommender system** is planned, which will refine recommendations fu
   - `sg`: **1** (skip-gram model used)  
 - **Training Strategy**:  
   - Input: `"artistname:trackname"` tokens.  
-  - Output: Vectorized song embeddings that capture similarity relationships.  
+  - Output: Vectorized song embeddings that capture similarity relationships.
+
+### 🛠 Data Split  
+- The dataset was **split 80-20**:
+  - **80% of tokens** were used for training the Word2Vec model.  
+  - **20% were held out** to evaluate embeddings.  
+- **Validation Strategy**:
+  - Instead of randomly validating all tokens, validation was conducted on a **subset of 1,000 users** from the ground truth dataset.  
+  - This approach ensures that evaluation reflects **real user preferences** rather than random token similarities.  
 
 ---
 
@@ -79,6 +87,7 @@ jupyter notebook
 - Open the notebook and input an "artistname:trackname".
 - The model will return the top 10 recommended songs based on artist similarity.
 - Example Usage:
+
   ![exampleUsage](presentation/exampleUsage.png)
 
 ---
@@ -129,5 +138,5 @@ This repository does **not** distribute, modify, or claim ownership over any Spo
 
 ---
 
-🎧 **Have a favorite artist? Let’s see if AI can guess your next jam!** 🎶  
+## 🎧 **Have a favorite artist? Let’s see if AI can guess your next jam!** 🎶  
 
